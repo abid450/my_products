@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+ <style>
+     label{
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     }
+    .errorlist{
+        color: red;
+        list-style: none;
+        padding: 0px;
+    }
+    .form-floating .form-control, .form-floating .form-select{
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid black;
+        padding-left: 0.2rem;
+    }
+    .form-floating .form-control:focus, .form-floating .form-select:focus{
+        box-shadow: none;
+        border-bottom: 2px solid green;
+    }
+    .form-floating .form-control:focus + label, .form-floating .form-select:focus + label{
+       color: green; 
+    }
+    .form-floating .form-control + label, .form-floating .form-select + label{
+       padding-left: 0;
+       transition: all .5s;
+    }
+    .form{
+        border: 1px solid #f1f1f1;
+        padding: 1em;
+        box-shadow: 0 4px 6px rgba(22, 22, 26, .18);
+    }
+    
+    
+ 
+ </style>
+</head>
+<body>
+    <div class="col-md-5 mt-5 m-auto p-2">
+        <div class="container">
+            <div class="form">
+    <h2>My Products App</h2>
+    <form action="" method="POST" novalidate>
+        {% csrf_token %}
+        <div class="form-floating mb-3">
+           
+             {{form.name}}
+             {{form.name.errors}}
+             <label for="floatingInput" class="">Name : </label>
+          </div>
+          <div class="form-floating">
+         
+            {{form.email_address}}
+            {{form.email_address.errors}}
+            <label for="floatingemail">Email Address : </label>
+          </div>
+            
+          <div class="form-floating">
+         
+            {{form.phone_number}}
+            {{form.phone_number.errors}}
+            <label for="floatingemail">Phone Number : </label>
+          </div>
+
+          <div class="form-floating">
+         
+            {{form.title}}
+            
+            <label for="floatingemail">Title : </label>
+          </div>
+
+        <input type="submit" value="Send" class="btn btn-primary w-100 mt-3">
+    </form>
+        </div>
+        </div>
+</body>
+</html>
